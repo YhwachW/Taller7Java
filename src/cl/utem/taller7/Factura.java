@@ -34,11 +34,11 @@ public class Factura {
     }
 
 
-    public Integer getNumero() {
+    public Integer getnumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setnumero(Integer numero) {
         this.numero = numero;
     }
 
@@ -91,14 +91,40 @@ public class Factura {
     public void ver(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Factura: ");
-        stringBuilder.append(getNumero());
+        stringBuilder.append(getnumero());
         stringBuilder.append(" - Fecha: ");
         stringBuilder.append(getFecha());
         stringBuilder.append("\n");
-        stringBuilder.append(" - RUT: ");
+        stringBuilder.append("RUT: ");
         stringBuilder.append(getRut());
         stringBuilder.append(" - Nombre: ");
         stringBuilder.append(getNombreCliente());
+        stringBuilder.append("\n\n");
+        Stack<LineaDeDetalle> aux = this.detalles;
+        stringBuilder.append ("Cantidad:\tDescripcion:\tPrecio: \tImporte:\n");
+        while (!aux.empty()) {
+            LineaDeDetalle detalle = aux.pop();
+            stringBuilder.append ("");
+            stringBuilder.append (detalle.getCantidad());
+            stringBuilder.append ("\t\t\t");
+            stringBuilder.append (detalle.getDescripcion());
+            stringBuilder.append ("\t\t\t");
+            stringBuilder.append (detalle.getPrecioUnitario());
+            stringBuilder.append ("\t\t\t");
+            stringBuilder.append (detalle.subtotalLinea());
+            stringBuilder.append ("\n");
+
+        }
+        stringBuilder.append("\nIva: \t");
+        stringBuilder.append(getIva());
+        stringBuilder.append("\n");
+        stringBuilder.append("Subtotal: \t");
+        stringBuilder.append(getSubtotal());
+        stringBuilder.append("\n");
+        stringBuilder.append("Total: \t");
+        stringBuilder.append(getTotal());
+        stringBuilder.append ("\n\n\n");
+
         System.out.print(stringBuilder.toString());
 
 
