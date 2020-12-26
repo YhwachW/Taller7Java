@@ -1,3 +1,5 @@
+package cl.utem.taller7;
+
 import cl.utem.taller7.Factura;
 
 public class Main {
@@ -7,6 +9,12 @@ public class Main {
         factura1.agregaLinea(4,"Disco",500);
         factura1.agregaLinea(3,"yoghurt",900);
         factura1.agregaLinea(5,"Cereal",3000);
+        factura1.agregaLinea(3,"Soya",1500);
+        factura1.agregaLinea(1,"Helado",3500);
+        factura1.agregaLinea(4,"Vodka",5000);
+        factura1.agregaLinea(3,"Cigarros",2000);
+
+
         factura1.ver();
 
         Factura factura2= new Factura (2,"7.957.928-9",20201217,"Chayanne Gonzales" );
